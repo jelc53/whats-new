@@ -1,0 +1,24 @@
+{
+  "name": "whats-new",
+  "version": "1.0.0",
+  "description": "wiki for synopses of academic publications",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jelc53/whats-new.git"
+  },
+  "author": "Julian Cooper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jelc53/whats-new/issues"
+  },
+  "homepage": "https://github.com/jelc53/whats-new#readme",
+  "dependencies": {
+    "express-fileupload": "^1.4.0",
+    "express.js": "^1.0.0",
+    "nodemon": "^3.0.1"
+  }
+}
