@@ -1,5 +1,5 @@
-const blogTitleField = document.querySelector('.title');
-const articleField = document.querySelector('.article');
+const sketchTitleField = document.querySelector('.title');
+const sketchArticleField = document.querySelector('.article');
 
 // banner
 const bannerImage = document.querySelector('#banner-upload');
@@ -41,8 +41,39 @@ const uploadImage = (uploadFile, uploadType) => {
 }
 
 const addImage = (imagepath, alt) => {
-    let curPos = articleField.selectionStart;
+    let curPos = sketchArticleField.selectionStart;
     let textToInsert = `\r![${alt}](${imagepath})\r`;
-    articleField.value = articleField.value.slice(0, curPos) + textToInsert + articleField.value.slice(curPos);
+    sketchArticleField.value = sketchArticleField.value.slice(0, curPos) + textToInsert + sketchArticleField.value.slice(curPos);
 }
 
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+publishBtn.addEventListener('click', () => {
+    if(sketchArticleField.value.length && sketchTitleField.value.length){
+        // generating id
+        let letters = 'abcdefghijklmnopqrstuvwxyz';
+        let sketchTitle = sketchTitleField.value.split(" ").join("-");
+        let id = '';
+        for(let i = 0; i < 4; i++){
+            id += letters[Math.floor(Math.random() * letters.length)];
+        }
+
+        // setting up docName
+        let docName = `${sketchTitle}-${id}`;
+        let date = new Date(); // for published at info
+
+        // access firestore with db variable
+        db.collection("sketches").doc(docName).set({
+            title: sketchTitleField.value,
+            article: sketchArticleField.value,
+            bannerImage: bannerPath,
+            publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+        })
+        .then(() => {
+            console.log('date entered');
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+    }
+})
