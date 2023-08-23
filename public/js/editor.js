@@ -1,3 +1,5 @@
+//import { db } from "./firebase.js";
+
 const sketchTitleField = document.querySelector('.title');
 const sketchArticleField = document.querySelector('.article');
 
