@@ -1,8 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
+// import { getFirestore } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js";
 
 // your web app's firebase configuration
-const firebaseConfig = {
+let firebaseConfig = {
     apiKey: "AIzaSyB9U-ATYkQ3lRvVZCEnfcclRZFs2nPTz8I",
     authDomain: "whats-new-de07f.firebaseapp.com",
     projectId: "whats-new-de07f",
@@ -12,6 +12,6 @@ const firebaseConfig = {
 };
 
 // initialize firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+let db = firebase.firestore();
 //export default db;

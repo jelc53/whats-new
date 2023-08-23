@@ -1,4 +1,4 @@
-//import { db } from "./firebase.js";
+// import { db } from "./firebase.js";
 
 const sketchTitleField = document.querySelector('.title');
 const sketchArticleField = document.querySelector('.article');
@@ -65,7 +65,7 @@ publishBtn.addEventListener('click', () => {
         let date = new Date(); // for published at info
 
         // access firestore with db variable
-        db.collection("sketches").doc(docName).set({
+        db.collection("blogs").doc(docName).set({
             title: sketchTitleField.value,
             article: sketchArticleField.value,
             bannerImage: bannerPath,
@@ -73,9 +73,22 @@ publishBtn.addEventListener('click', () => {
         })
         .then(() => {
             console.log('date entered');
+            // location.href = `/${docName}`;
         })
         .catch((err) => {
             console.error(err);
         })
+        // db.collection("sketches").doc(docName).set({
+        //     title: sketchTitleField.value,
+        //     article: sketchArticleField.value,
+        //     bannerImage: bannerPath,
+        //     publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+        // })
+        // .then(() => {
+        //     console.log('date entered');
+        // })
+        // .catch((err) => {
+        //     console.error(err);
+        // })
     }
 })
