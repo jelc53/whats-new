@@ -72,23 +72,11 @@ publishBtn.addEventListener('click', () => {
             publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
         })
         .then(() => {
-            console.log('date entered');
-            // location.href = `/${docName}`;
+            // console.log('date entered');
+            location.href = `/${docName}`;
         })
         .catch((err) => {
             console.error(err);
         })
-        // db.collection("sketches").doc(docName).set({
-        //     title: sketchTitleField.value,
-        //     article: sketchArticleField.value,
-        //     bannerImage: bannerPath,
-        //     publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
-        // })
-        // .then(() => {
-        //     console.log('date entered');
-        // })
-        // .catch((err) => {
-        //     console.error(err);
-        // })
     }
 })
