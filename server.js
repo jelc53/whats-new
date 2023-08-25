@@ -11,11 +11,12 @@ const app = express();
 app.use(express.static(initial_path));
 app.use(fileupload());
 
-// make home route, and send response file
+// home route, and send response file
 app.get('/', (req, res) => {
   res.sendFile(path.join(initial_path, "home.html"));
 })
 
+// editor route
 app.get('/editor', (req, res) => {
   res.sendFile(path.join(initial_path, "editor.html"));
 })
@@ -38,6 +39,14 @@ app.post('/upload', (req, res) => {
       res.json(`uploads/${imagename}`);
     }
   })
+})
+
+app.get("/:sketch", (req, res) => {
+  res.sendFile(path.join(initial_path, "sketch.html"))
+})
+
+app.use((req, res) => {
+  res.json("404");
 })
 
 app.listen("3000", () => {
