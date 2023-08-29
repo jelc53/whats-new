@@ -13,7 +13,7 @@ app.use(fileupload());
 
 // home route, and send response file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(initial_path, "home.html"));
+  res.sendFile(path.join(initial_path, "index.html"));
 })
 
 // editor route
