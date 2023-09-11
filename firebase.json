@@ -5,16 +5,20 @@
   },
   "hosting": {
     "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
     "rewrites": [
+      {
+        "source": "/editor/**",
+        "destination": "/editor.html"
+      },
       {
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
     ]
   }
 }
