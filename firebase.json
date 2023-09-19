@@ -7,11 +7,15 @@
     "public": "public",
     "rewrites": [
       {
-        "source": "/editor/**",
+        "source": "/**{,/**}",
+        "destination": "/sketch.html"
+      },
+      {
+        "source": "/editor{,/**}",
         "destination": "/editor.html"
       },
       {
-        "source": "**",
+        "source": "/{,home,/index}",
         "destination": "/index.html"
       }
     ],
